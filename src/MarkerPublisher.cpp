@@ -11,12 +11,14 @@ namespace ros2_simple {
         // Assign parameters
         this->get_parameter("publisher_frequency", _pub_frequency);
         this->get_parameter("speed", _speed);
+        //TODO: remove print statement
         std::cout << "Publish frequency: " << _pub_frequency << std::endl;
+
         // Create marker MarkerPublisher
         _marker_pub = this->create_publisher<visualization_msgs::msg::Marker>("marker_topic", 10);
         // Create time callback
         if (_pub_frequency > 1000) {
-            // _pub_frequency = 1000;
+            _pub_frequency = 1000;
             RCLCPP_WARN(this->get_logger(), "The frequency is too high, it will be set to 1000Hz (1 millisecond).");
         }
         int duration = 1000 / _pub_frequency;
