@@ -33,7 +33,7 @@ namespace ros2_simple {
         _marker.scale.x = 0.5;
         _marker.scale.y = 0.25;
         _marker.scale.z = 0.2;
-        _marker.pose.position.x = 0.0;
+        _marker.pose.position.x = _marker.scale.x / 2.0;
         _marker.pose.position.y = 0.0;
         _marker.pose.position.z = _marker.scale.z / 2.0;
         _marker.pose.orientation.x = 0.0;
