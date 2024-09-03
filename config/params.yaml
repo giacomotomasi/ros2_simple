@@ -1,0 +1,3 @@
+marker_pub_node
+  ros__parameters:
+  publisher_frequency: 10 # [Hz]
