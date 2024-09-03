@@ -7,9 +7,35 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(visualization_msgs REQUIRED)
+
+# include_directories(
+#         include
+#         include/${PROJECT_NAME}
+# )
+
+# add executable
+add_executable(marker_pub_node src/publisher_node.cpp src/MarkerPublisher.cpp)
+
+target_include_directories(marker_pub_node PRIVATE include)
+
+ament_target_dependencies(marker_pub_node rclcpp visualization_msgs)
+
+
+install(TARGETS 
+        marker_pub_node
+        DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY
+        launch/
+        DESTINATION share/${PROJECT_NAME}/launch
+        )
+
+install(DIRECTORY
+        cfg/
+        DESTINATION share/${PROJECT_NAME}/cfg
+        )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
