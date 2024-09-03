@@ -11,8 +11,9 @@ namespace ros2_simple {
         // Assign parameters
         this->get_parameter("publisher_frequency", _pub_frequency);
         this->get_parameter("speed", _speed);
-        //TODO: remove print statement
-        std::cout << "Publish frequency: " << _pub_frequency << std::endl;
+
+        RCLCPP_DEBUG(this->get_logger(), "publisher_frequency: %i", _pub_frequency);
+        RCLCPP_DEBUG(this->get_logger(), "speed: %f", _speed);
 
         // Create marker MarkerPublisher
         _marker_pub = this->create_publisher<visualization_msgs::msg::Marker>("marker_topic", 10);
