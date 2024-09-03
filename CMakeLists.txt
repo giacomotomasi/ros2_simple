@@ -33,8 +33,8 @@ install(DIRECTORY
         )
 
 install(DIRECTORY
-        cfg/
-        DESTINATION share/${PROJECT_NAME}/cfg
+        config/
+        DESTINATION share/${PROJECT_NAME}/config
         )
 
 if(BUILD_TESTING)
