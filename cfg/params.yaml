@@ -1,0 +1,4 @@
+marker_pub_node:
+  ros__parameters:
+    publisher_frequency: 100 # Hz [int]
+    speed: 0.2 # m/s [float]
