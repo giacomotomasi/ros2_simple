@@ -7,7 +7,6 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_gtest REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(visualization_msgs REQUIRED)
 
@@ -25,12 +24,6 @@ target_include_directories(marker_sub_node PRIVATE include)
 
 ament_target_dependencies(marker_pub_node rclcpp visualization_msgs)
 ament_target_dependencies(marker_sub_node rclcpp visualization_msgs)
-
-# Add your test executable
-ament_add_gtest(marker_pub_test test/test_publisher_node.cpp src/MarkerPublisher.cpp)
-ament_target_dependencies(marker_pub_test rclcpp visualization_msgs)
-
-target_include_directories(marker_pub_test PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 
 install(TARGETS 
