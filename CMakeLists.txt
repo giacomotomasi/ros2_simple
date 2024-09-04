@@ -15,16 +15,20 @@ find_package(visualization_msgs REQUIRED)
 #         include/${PROJECT_NAME}
 # )
 
-# add executable
+# add executables
 add_executable(marker_pub_node src/publisher_node.cpp src/MarkerPublisher.cpp)
+add_executable(marker_sub_node src/subscriber_node.cpp src/MarkerSubscriber.cpp)
 
 target_include_directories(marker_pub_node PRIVATE include)
+target_include_directories(marker_sub_node PRIVATE include)
 
 ament_target_dependencies(marker_pub_node rclcpp visualization_msgs)
+ament_target_dependencies(marker_sub_node rclcpp visualization_msgs)
 
 
 install(TARGETS 
         marker_pub_node
+        marker_sub_node
         DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY
