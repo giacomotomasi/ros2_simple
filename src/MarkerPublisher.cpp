@@ -68,4 +68,16 @@ namespace ros2_simple {
         // Update timestamp
         _marker.header.stamp = this->now();
     }
+
+    visualization_msgs::msg::Marker MarkerPublisher::getMarker() {
+        return _marker;
+    }
+
+    void MarkerPublisher::setFrequency(int frequency) {
+        _pub_frequency = frequency;
+    }
+
+    void MarkerPublisher::setSpeed(double speed) {
+        _speed = speed;
+    }
 }

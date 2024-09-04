@@ -12,6 +12,26 @@ namespace ros2_simple {
             // Destructor
             ~MarkerPublisher();
 
+            /**
+             * Getter for Marker.
+             */
+            visualization_msgs::msg::Marker getMarker();
+
+            /**
+             * Set frequency parameter.
+             */
+            void setFrequency(int frequency);
+
+            /**
+             * Set speed parameter.
+             */
+            void setSpeed(double speed);
+
+            /**
+             * Shift the marker x position ti create a motion for visualization.
+             */
+            void updateMarker();
+
         private:
             // Declare publisher
             rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr _marker_pub;
@@ -27,11 +47,6 @@ namespace ros2_simple {
              * Timer callback.
              */
             void timerCallback();
-
-            /**
-             * Shift the marker x position ti create a motion for visualization.
-             */
-            void updateMarker();
     };
 
 }
