@@ -27,6 +27,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    marker_sub_node = launch_ros.actions.Node(
+        package="ros2_simple",
+        executable="marker_sub_node",
+        name='marker_sub_node',
+        namespace='ros2_simple',
+        parameters=[ros2_simple_params],
+        arguments=['--ros-args', '--log-level', logLevel],
+        output='screen'
+    )
+
     ld.add_action(marker_pub_node)
+    ld.add_action(marker_sub_node)
 
     return ld
