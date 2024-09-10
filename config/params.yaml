@@ -1,5 +1,4 @@
-ros2_simple:
-  marker_pub_node:
-    ros__parameters:
-      publisher_frequency: 1 # [Hz]
-      speed: 0.1 # [m/s]
+marker_pub_node:
+  ros__parameters:
+    publisher_frequency: 1 # [Hz]
+    speed: 0.1 # [m/s]
