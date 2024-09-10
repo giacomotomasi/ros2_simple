@@ -20,7 +20,7 @@ def generate_launch_description():
     marker_pub_node = launch_ros.actions.Node(
         package="ros2_simple",
         executable="marker_pub_node",
-        name='marker_pub_node',
+        name='marker_publisher_node',
         # namespace='ros2_simple',
         parameters=[ros2_simple_params],
         arguments=['--ros-args', '--log-level', logLevel],
@@ -30,7 +30,7 @@ def generate_launch_description():
     marker_sub_node = launch_ros.actions.Node(
         package="ros2_simple",
         executable="marker_sub_node",
-        name='marker_sub_node',
+        name='marker_subscriber_node',
         # namespace='ros2_simple',
         parameters=[ros2_simple_params],
         arguments=['--ros-args', '--log-level', logLevel],
