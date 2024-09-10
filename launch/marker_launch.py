@@ -11,17 +11,17 @@ def generate_launch_description():
     """
     logLevel = "INFO"
 
-    ros2_simple_params = os.path.join(
-        get_package_share_directory('ros2_simple'),
-        'config',
-        'params.yaml'
-    )
+    ros2_simple_params = os.path.dirname(
+        os.path.dirname(
+            os.path.dirname(
+                os.path.dirname(
+                        get_package_share_directory('ros2_simple'))))) + '/src/ros2_simple/config/params.yaml'
 
     marker_pub_node = launch_ros.actions.Node(
         package="ros2_simple",
         executable="marker_pub_node",
         name='marker_pub_node',
-        namespace='ros2_simple',
+        # namespace='ros2_simple',
         parameters=[ros2_simple_params],
         arguments=['--ros-args', '--log-level', logLevel],
         output='screen'
@@ -31,7 +31,7 @@ def generate_launch_description():
         package="ros2_simple",
         executable="marker_sub_node",
         name='marker_sub_node',
-        namespace='ros2_simple',
+        # namespace='ros2_simple',
         parameters=[ros2_simple_params],
         arguments=['--ros-args', '--log-level', logLevel],
         output='screen'
