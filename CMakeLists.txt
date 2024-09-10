@@ -10,11 +10,6 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(visualization_msgs REQUIRED)
 
-# include_directories(
-#         include
-#         include/${PROJECT_NAME}
-# )
-
 # add executables
 add_executable(marker_pub_node src/publisher_node.cpp src/MarkerPublisher.cpp)
 add_executable(marker_sub_node src/subscriber_node.cpp src/MarkerSubscriber.cpp)
@@ -51,6 +46,7 @@ if(BUILD_TESTING)
   # a copyright and license is added to all source files
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
 endif()
 
 ament_package()
