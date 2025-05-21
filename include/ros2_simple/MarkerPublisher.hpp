@@ -4,50 +4,41 @@
 #include "rclcpp/rclcpp.hpp"
 #include "visualization_msgs/msg/marker.hpp"
 
-namespace ros2_simple {
-    class MarkerPublisher : public rclcpp::Node {
-        public:
-            // Constructor
-            MarkerPublisher();
-            // Destructor
-            ~MarkerPublisher();
+namespace ros2_simple
+{
+    class MarkerPublisher : public rclcpp::Node
+    {
+    public:
+        /// @brief Constructor
+        MarkerPublisher();
+        /// @brief Destructor
+        ~MarkerPublisher();
 
-            /**
-             * Getter for Marker.
-             */
-            visualization_msgs::msg::Marker getMarker();
+        /// @brief Getter for Marker
+        visualization_msgs::msg::Marker getMarker();
 
-            /**
-             * Set frequency parameter.
-             */
-            void setFrequency(int frequency);
+        /// @brief Set frequency paramete
+        void setFrequency(int frequency);
 
-            /**
-             * Set speed parameter.
-             */
-            void setSpeed(double speed);
+        /// @brief Set speed parameter
+        void setSpeed(double speed);
 
-            /**
-             * Shift the marker x position ti create a motion for visualization.
-             */
-            void updateMarker();
+        /// @brief Shift the marker x position ti create a motion for visualization
+        void updateMarker();
 
-        private:
-            // Declare publisher
-            rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr _marker_pub;
-            rclcpp::TimerBase::SharedPtr _timer;
+    private:
+        /// @brief Declare publisher
+        rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
+        rclcpp::TimerBase::SharedPtr timer_;
 
-            // Create a marker instance
-            visualization_msgs::msg::Marker _marker {};
+        /// @brief Create a marker instance
+        visualization_msgs::msg::Marker marker_{};
 
-            int _pub_frequency {};
-            double _speed {};
+        int pub_frequency_{};
+        double speed_{};
 
-            /**
-             * Timer callback.
-             */
-            void timerCallback();
+        /// @brief Timer callback
+        void timerCallback();
     };
 
-}
-
+} // ros2_simple
